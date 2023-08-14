@@ -1,0 +1,48 @@
+h1{background-color:rgba(98, 27, 27, 0.9);
+    color: white;
+    font-size: 20px;
+}
+.texto{font-style: italic;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 1.5rem;
+        text-align: justify;
+        background-color: rgb(220, 213, 204);
+        border-radius: 25px;
+        padding: 5px;
+        width: 80%;
+        border: 5px solid;
+        border-color: rgba(98, 26, 26, 0.9);
+     }
+body {background-image: url("/imagenes/Arena.png");
+}
+.enemigo {
+    height: 75%;
+    width: 75%;
+}
+.contenedor {
+    width: 90%;
+    height: 120px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+     
+}
+.ppio {
+    width: 30%;
+    background-color: cornsilk;
+    border-radius: 10px;
+    padding: 1%;
+    font-size: 150%;
+    text-align: center;
+    box-sizing: border-box;
+}
+@media (max-width: 680px) {
+.ppio {
+    width: 100%;
+    }
+    #mapa {
+        max-width: 80%;
+
+    }
+}

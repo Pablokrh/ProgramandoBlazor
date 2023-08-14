@@ -1,0 +1,29 @@
+@use "sass:string";
+@use "sass:math";
+@use "sass:list";
+@use "sass:color";
+
+//Funciones con strings
+@debug "hola";
+@debug string.index("Helvetica Neue", "Neue");
+
+$string: "Helvética";
+$newstring: string.insert($string, " Bold", 10);
+@debug $newstring;
+
+//Funciones con números
+@debug math.$pi;
+@debug math.round(4.4);
+@debug math.round(4.5);
+
+//Funciones con listas
+$lista1: 10px, 10px,0px,15px;
+@debug $lista1;
+@debug list.append($lista1,25px);
+
+$color:#fdaa2b;
+@debug color.adjust($color, $red:-50);
+@debug color.complement($color);
+//Este sería el resultado del debug anterior, el complementario:
+$color2:#2b7efd;
+@debug color.complement($color2);

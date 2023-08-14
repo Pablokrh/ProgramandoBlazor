@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\Pcablo\Desktop\Programando\C#\Entity Framework\TPN3\LinqSnippets\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\Pcablo\Desktop\Programando\C#\Entity Framework\TPN3\LinqSnippets\.editorconfig" />
+  </ItemGroup>
+
+</Project>

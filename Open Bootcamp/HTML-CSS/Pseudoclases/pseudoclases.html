@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pseudoclases</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .hover {
+        width: 300px;
+        height: 100px;
+        background-color: bisque;
+      }
+      .hover:hover {
+        background-color: rgb(209, 139, 54);
+      }
+
+      .listado {
+        padding: 15px;
+        background-color: aquamarine;
+      }
+      .listado p:first-child {
+        color: white;
+      }
+
+      a:link {
+        color: red;
+      }
+
+      a:visited {
+        color: blue;
+      }
+
+      a:hover {
+        opacity: 0.6;
+       
+      }
+      a:active{
+        color:yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hover">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed deleniti
+        consequatur molestias facilis, voluptate eum magnam fuga molestiae ipsam
+        quia earum ex explicabo. Provident voluptatem sapiente culpa quibusdam
+        unde voluptate.
+      </p>
+    </div>
+    <div class="listado">
+      <p>Párrafo 1</p>
+      <p>Párrafo 2</p>
+      <p>Párrafo 3</p>
+    </div>
+
+    <div class="enlace">
+      <a href="https://google.com" target="_blank">Enlace a Google.com</a>
+      <a
+        href="https://campus.open-bootcamp.com/cursos/12/leccion/1938"
+        target="_blank"
+        >Enlace a OpenBootcamp.com</a
+      >
+    </div>
+  </body>
+</html>

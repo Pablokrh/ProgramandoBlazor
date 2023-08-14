@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32802.440
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quark-Practica-previa", "Quark-Practica-previa.csproj", "{A992D9EE-5C02-4A21-9559-0C98E70F8A02}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A992D9EE-5C02-4A21-9559-0C98E70F8A02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A992D9EE-5C02-4A21-9559-0C98E70F8A02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A992D9EE-5C02-4A21-9559-0C98E70F8A02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A992D9EE-5C02-4A21-9559-0C98E70F8A02}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A53478E6-9A66-4391-84A4-F139CB1C52FA}
+	EndGlobalSection
+EndGlobal

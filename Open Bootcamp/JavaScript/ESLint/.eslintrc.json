@@ -1,0 +1,18 @@
+{
+    "rules": {
+        "eqeqeq": "warn",
+        "strict": "off",
+        //Esta lìnea que sigue es para las comillas
+        "quotes": [
+            "error",
+            "single"
+        ],
+        //Esta para el punto y coma al final de cada linea
+        "semi": [
+            "warn",
+            "never"
+        ],
+        //Esto para que no hayan variables con el mismo nombre en un objeto.
+        "no-dupe-keys": "error"
+    }
+}

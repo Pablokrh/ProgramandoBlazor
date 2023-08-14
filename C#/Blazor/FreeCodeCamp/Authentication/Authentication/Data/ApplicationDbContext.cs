@@ -1,0 +1,14 @@
+﻿using Authentication.Data.Migrations;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+
+namespace Authentication.Data
+{
+    public class ApplicationDbContext : IdentityDbContext<AspNetUser>
+    {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options)
+        {
+        }
+    }
+}

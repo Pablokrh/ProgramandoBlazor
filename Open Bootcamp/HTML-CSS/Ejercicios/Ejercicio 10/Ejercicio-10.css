@@ -1,0 +1,48 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    margin: 15px;
+
+}
+.seccion{
+    width: 80vw;
+
+}
+.barra{
+  
+    width: 15vw;
+
+}
+
+.columna{
+
+    border: 2px solid brown;   
+    background-color: bisque;
+}
+ .header{
+    font-size: 2rem;
+    
+ }
+ .elemento{
+    font-size: 1.3rem;
+    padding: 0.4rem;
+    border: 1px solid brown;
+    
+ }
+
+ @media (max-width: 640px) {
+    .container{
+        flex-direction: column-reverse;
+    }
+    .barra{
+        display: flex;
+        flex-direction:row;
+        width: 95vw;
+        height: 25vh;
+    }
+    .seccion{
+        width: 95vw;
+        height: 70vh;
+    }
+}

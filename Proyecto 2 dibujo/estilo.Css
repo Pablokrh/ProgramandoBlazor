@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+}
+body{
+    font-family: Helvetica, sans-serif;
+    background-color: rgb(226, 223, 223);
+}
+.container {
+   
+    width: 85%;
+    margin: auto;
+}
+.container h1{
+    text-align: center;
+}
+
+.dibujos img { 
+    width: 100%; 
+    border-radius: 50%;
+    background-color: rgb(212, 154, 87);
+    padding: 1%;
+    }
+.dibujos h3{
+    text-align: center;
+}
+.dibujos{
+    margin: auto;
+    width: 80%;
+}
+
+.listadedibujos {
+    padding: 10px;
+    background-color: white;
+    border: 1px solid rgb(203, 196, 196);
+
+
+
+}
+.botonagregar {
+    background-color: green;
+    color: aliceblue;
+    border: none;
+    padding:10px;
+    font: size 1.4rem;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+}
+@media(min-width: 768px)
+ {
+    .listadedibujos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 700px;
+    }
+     .dibujos {
+        width: 48%;
+        margin: 0;
+    }
+}
+
+@media(min-width: 1200px)
+{
+    .listadedibujos {
+        max-width: 1000px;
+        margin: auto;
+    }
+  
+    .dibujos {
+        width: 31%;
+    }
+    .dibujos img {
+        width: 85%;
+        display: block;
+        margin: auto;
+    }
+    .botonagregar {
+        margin-top: 20px;
+    }
+}

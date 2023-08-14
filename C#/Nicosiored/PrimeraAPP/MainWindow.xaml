@@ -1,0 +1,22 @@
+﻿<Window x:Class="PrimeraAPP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrimeraAPP"
+        mc:Ignorable="d"
+        Title="Mi primera App WPF" Height="350" Width="750">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center"
+                   VerticalAlignment="Center" FontSize="44" Margin="35,25,430,235"> ¡Hola a Todos!
+        </TextBlock>
+        <Button Content="Primer botoncito" FontSize="20" HorizontalAlignment="Left" Margin="35,117,0,0" VerticalAlignment="Top" Width="170" RenderTransformOrigin="-1.286,0.434" Click="Button_Click"/>
+        <Button Name="Segundo" Margin= "400,150,33,24" Height="75" Width="200"> 
+            <WrapPanel>
+                <TextBlock Name="Chicondo"> Primer contenido</TextBlock>
+                <TextBlock Margin="50,30,5,10"> Segundo contenido</TextBlock>
+            </WrapPanel>
+        </Button>
+
+    </Grid>
+</Window>

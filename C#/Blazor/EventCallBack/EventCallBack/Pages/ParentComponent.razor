@@ -1,0 +1,27 @@
+﻿@page "/fetchdata"
+@using static EventCallBack.Pages.FetchData;
+
+<h3>ParentComponent</h3>
+<FetchData SettearValores="SetearValoresEnPadre"></FetchData>
+
+@if (_forecasts != null)
+{
+    <li>
+        @foreach (var item in _forecasts)
+        {
+            <ol>@item.Summary / @item.Date / @item.TemperatureC </ol>
+        }
+    </li>
+}
+
+
+
+
+@code {
+    private WeatherForecast[]? _forecasts; 
+
+    private void SetearValoresEnPadre(WeatherForecast[]? forecasts)
+    {
+        _forecasts = forecasts;
+    }
+}

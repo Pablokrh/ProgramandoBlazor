@@ -1,0 +1,32 @@
+﻿@model List<Cerveza>
+
+<h1>Listado de cervezas</h1>
+
+<table class="table table-striped">
+
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Marca</th>
+            <th> </th>
+        </tr>
+    </thead>
+    <tbody>
+         @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m=>item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(m=>item.Brand.Name)
+                </td>               
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+<p>
+    <a asp-action="Create" class="btn btn-info mb-3"> Crear </a>
+</p>

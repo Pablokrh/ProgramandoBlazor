@@ -1,0 +1,181 @@
+﻿@page "/detalle/{Id:int}"
+
+@inject IInmobiliariaServicios inmobiliariaServicio;
+@inject IImagenServicio imagenServicio;
+
+
+<div class="container">
+
+
+    @if (modelo!=null){
+        <div class="row gx-4 gx-lg-5 align-items-center">
+
+            <div class="col-md-6 align-items-center">
+              
+
+
+
+                <img class="card-img-top border-dark border-1" src="@modelo.FechaCreacion" style="width:100%;">
+             </div >
+            <div class="col-md-6 align-items-center">
+                    <span class="fw-bolder">@modelo.Titulo  </span>
+               
+                <div>
+                    <span>@modelo.TipoInmueble</span>
+                </div>
+                <div>
+                    <span>@modelo.Detalles</span>
+                </div>
+                <div>
+                    <span>@modelo.Pais</span>
+                    <span>@modelo.Ciudad</span>
+                
+                </div > 
+                <div class="align-content-center">  
+                  <table class="table ">
+                    <thead>
+                        <tr>
+                            <th>Ambientes</th>
+                            <th>Metros cuadrados</th>
+                            <th>Antigüedad</th>    
+                        </tr>
+                    </thead>
+                    <tbody>
+                       <tr>
+                           <th>@modelo.Ambientes</th>
+                           <th>@modelo.Metros</th>
+                           <th>@modelo.Antigüedad</th>
+                       </tr> 
+                    </tbody>
+                </table>
+
+                <table class="table table-striped align-content-center">
+                    <thead>
+                        <tr>
+                            <th>Estado</th>
+                            <th>Publicado para</th>
+                            <th>Antigüedad</th>                            
+                        </tr>
+                    </thead>
+                </table>
+                </div>
+           
+                <div>
+                    <span>@modelo.Precio</span>
+                    <span>@modelo.Expensas</span>
+                    
+                   
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="conCarr col-6" style="background-color:grey ">
+
+            <MudCarousel @ref="_carousel" ItemsSource="@listaImagenes" @bind-SelectedIndex="selectedIndex" Style="height:375px" ShowArrows="@_arrows" ShowBullets="@_bullets" EnableSwipeGesture="@_enableSwipeGesture" AutoCycle="@_autocycle">
+                <ItemTemplate>
+                    <div class="ImCarr">
+                        <a class="aCarr" href="/#">
+                            <MudImage Src="@context"></MudImage>
+                        </a>
+                    </div>
+                </ItemTemplate>
+            </MudCarousel>
+
+        </div>
+
+
+
+
+
+
+    }
+
+
+    else
+    {
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    }
+
+
+
+
+
+</div>
+
+
+
+@code {
+    private MudCarousel<string> _carousel;
+    private bool _arrows = true;
+    private bool _bullets = true;
+    private bool _enableSwipeGesture = true;
+    private bool _autocycle = true;
+
+    private IList<string> _source = new List<string>() { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+    private int selectedIndex = 1;
+
+    private async Task AddAsync()
+    {
+        _source.Add($"Item {_source.Count + 1}");
+        await Task.Delay(1);
+        _carousel.MoveTo(_source.Count - 1);
+    }
+
+    private async Task DeleteAsync(int index)
+    {
+        if (_source.Any())
+        {
+            _source.RemoveAt(index);
+            await Task.Delay(1);
+            _carousel.MoveTo(System.Math.Max(System.Math.Min(index, _source.Count - 1), 0));
+        }
+
+    }
+
+}
+
+
+@code {
+
+    [Parameter]
+    public int Id { get; set; }
+
+    private InmuebleDTO modelo=null;
+
+    private List<ImagenDTO> listaImagenesDTO;
+    private List<string> listaImagenes;
+
+    private async Task ObtenerImagenes()
+    {
+        listaImagenesDTO = new List<ImagenDTO>();
+        listaImagenes = new List<string>();
+        var response = await imagenServicio.ObtenerLista(Id);
+        listaImagenesDTO = (List<ImagenDTO>)response.Resultado!;
+
+        foreach (var item in listaImagenesDTO)
+        {
+            listaImagenes.Add(item.ImagenData);
+        }
+
+
+
+    }
+
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await ObtenerImagenes();
+
+        
+         
+        var response = await inmobiliariaServicio.Obtener(Id);
+        if (response.EsCorrecto == true) modelo = (InmuebleDTO)response.Resultado!;
+         
+       
+
+    }
+}

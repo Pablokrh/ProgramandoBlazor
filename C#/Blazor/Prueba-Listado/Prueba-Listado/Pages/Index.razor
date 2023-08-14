@@ -1,0 +1,167 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<table class="table table-striped">
+   <tbody>
+       <tr>
+            <th>Auto</th>
+            <th>Cantidad de ruedas</th>
+            <th>Precio</th>
+       </tr>
+   </tbody>
+   @foreach (var item in listaAutos)
+    { 
+        <tr>
+            <td>@item.Nombre</td>
+            <td>@item.Ruedas</td>
+            <td>@item.Precio</td>
+
+        </tr>        
+   }
+  
+
+</table>
+
+<ul>
+    @foreach (var item in DevuelveSegúnRuedas())
+    {
+        <li>
+            @item.Nombre vale $@item.Precio
+        </li>
+    }
+
+</ul>
+
+
+
+
+
+@code{
+    private List<Auto> autosFiltrados = new List<Auto>();
+
+    private Auto filtro = new Auto()
+        {
+            Ruedas = 4,
+            Puertas = 2
+        };
+
+
+
+
+    public List<Auto> DevuelveSegúnRuedas()
+    {
+        foreach (var item in listaAutos)
+        {
+            if (item.Ruedas.Equals(filtro.Ruedas).n && item.Puertas==filtro.Puertas )
+            {     
+                autosFiltrados.Add(item);
+            }
+        }
+        return autosFiltrados;
+    }
+
+
+  
+
+        List<Auto> listaAutos = new List<Auto>()
+        {
+            new Auto
+            {
+                Ruedas=4,
+                Nombre="Subaru",
+                Precio=20000m,
+                Origen="Japón",
+                Puertas=4
+
+            },
+             new Auto
+            {
+                Ruedas=4,
+                Nombre="Cartoon",
+                Precio=32000m,
+                Origen="México",
+                Puertas=2
+            },
+             new Auto
+            {
+                Ruedas=2,
+                Nombre="Harley",
+                Precio=45000.99m,
+                Origen="Estados Unidos",
+                Puertas=0
+            },
+             new Auto
+            {
+                Ruedas=4,
+                Nombre="Honda",
+                Precio=20000m,
+                Origen="Japón",
+                Puertas=1
+            },
+             new Auto
+            {
+                Ruedas=4,
+                Nombre="Ferrari",
+                Precio=2400000m,
+                Origen="Italia",
+                Puertas=2
+            }
+        };
+
+
+    
+
+
+
+
+
+    public class Auto
+    {
+        public int Ruedas { get; set; }
+
+        public string Nombre { get; set; }
+
+        public decimal Precio { get; set; }
+
+        public string Origen { get; set; }
+
+        public int Puertas { get; set; }
+    }
+}
+
+
+
+             @*
+                 ***FILTRO CON 2 CRITERIOS***
+                 FUNCIONA PERFECTO:
+
+
+<ul>
+    @foreach (var item in DevuelveSegúnRuedas(4,2))
+    {
+        <li>
+            @item.Nombre vale $@item.Precio
+        </li>
+    }
+
+</ul>
+
+
+
+                 ***CODE*** 
+     private List<Auto> autosFiltrados = new List<Auto>();
+
+    public List<Auto> DevuelveSegúnRuedas(int ruedas, int puertas)
+    {
+        foreach (var item in listaAutos)
+        {
+            if (item.Ruedas == ruedas && item.Puertas==puertas)
+            {
+                autosFiltrados.Add(item);
+            }
+        }
+        return autosFiltrados;
+    }
+
+             *@

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Borel&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Borel&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <title>Mi App de Gatos</title>
+ 
+</head>
+
+<body>
+
+  <Main>
+    <h2 id="app-gatos">App de Gatos</h2>
+    <a href="https://www.todogatos.com/" target="_blank" rel="noopener noreferrer">
+      <p>Haz click aquí para ver mas imágenes de gatos</p>
+    </a>
+    <a href="https://www.todogatos.com/" target="_blank" rel="noopener noreferrer">
+      <img class="imagen-gato bordes-redondeados"
+        src="https://ca-times.brightspotcdn.com/dims4/default/c3f4b96/2147483647/strip/true/crop/1970x1108+39+0/resize/1200x675!/quality/80/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F12%2Fa5%2F79e097ccf62312d18a025f22ce48%2Fhoyla-recuento-11-cosas-aman-gatos-top-001"
+        alt="Gatito cachorrín y tierno">
+    </a>
+    <hr>
+    <h4>Lista de gatos</h4>
+    <div class="contenedor-listas">
+    <p>Cosas que los gatos <em>aman</em> </p>
+    <ul id="gatos-aman">
+      <li>Menta gatuna</li>
+      <li>Apuntadores láser</li>
+      <li> <s>Lasaña</s> </li>
+    </ul>
+    <img id="lasagna" src="Lasagna.jpg" alt="Lasagna">
+    <hr>
+    <p>Cosas que los gatos <strong>odian</strong> </p>
+    <ol id="gatos-odian">
+      <li>Tratamientos antipulgas</li>
+      <li>Truenos</li>
+      <li>Otros gatos</li>
+    </ol>
+    <img src="https://unamglobal.unam.mx/wp-content/uploads/2022/11/gatosmalos.jpg" class="imagen-gato" alt="Gato odioso">
+  </div>
+   
+    <form action="">
+      <label for="">Ingrese URL de la foto del gato: </label> <br>
+      <input type="text" placeholder="url de la foto del gato" required> <br>
+      <label for="car">
+        <input id="car" value="carinoso" name="personalidad" checked type="checkbox">Cariñoso
+      </label>
+      <label for="per">
+        <input id="per" value="perezoso" name="personalidad" type="checkbox">Perezoso
+      </label>
+      <label for="ene">
+        <input id="ene" value="energico" name="personalidad" type="checkbox">Enérgico</label>
+      <br>
+
+      <button type="submit">Enviar</button>
+      <hr>
+      <label for="interior"><input name="int-ext" value="interior" id="interior" checked type="radio"> Interior</label>
+      <br>
+      <label for="exterior"><input id="exterior" value="exterior" name="int-ext" type="radio">Exterior</label>
+    </form>
+  </Main>
+  <footer>
+<p> <small> Sin derechos de autor - <a href="https://www.freecodecamp.org/" target="_blank">  freeCodeCamp.Org  </small></a></p>
+
+  </footer>
+
+</html>

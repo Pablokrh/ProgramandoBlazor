@@ -1,0 +1,46 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<h4>El tema del If es cosa del Sr. Pablo y no parte de las enseñanzas</h4>
+<NuevoComponent Label="Name">
+    <Control>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name">
+    </Control>
+</NuevoComponent>
+<NuevoComponent Label="Email">
+    <Control>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </Control>
+</NuevoComponent>
+@if (modificar == true)
+{
+    <NuevoComponent Label="Department">
+        <Control>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Department">
+        </Control>
+    </NuevoComponent>
+}
+
+<button class="btn btn-info" @onclick="(()=>Modifica())">@textoBoton</button>
+
+
+@code{
+    private bool modificar;
+    private string textoBoton = "Modificar Departamento";
+
+    private void Modifica()
+    {
+        if (modificar == false)
+        {
+            modificar = true;
+            textoBoton = "No modificar Departamento";
+        }
+        else
+        {
+            modificar = false;
+            textoBoton = "Modificar Departamento";
+            
+        }
+    }
+}

@@ -1,0 +1,18 @@
+.btn-pablo{
+border: none;
+padding: 0.5rem;
+color: #2b2b2b;
+font-size: 1.3rem;
+border-radius: 5px;
+&:hover{
+    background-color: cyan;
+    color: red;
+    cursor: pointer;
+}
+}
+.btn-2-pablo{
+    @extend .btn-pablo;
+    &:hover{
+        background-color: pink;
+    }
+}

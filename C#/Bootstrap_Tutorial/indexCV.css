@@ -1,0 +1,20 @@
+.Foto1{
+    display: flex;
+    justify-content: center;
+    height: 350px;
+    width: auto;
+    background-color: grey;
+    padding-top: 10px;
+    ;    
+}
+
+.TipografíaMia {
+font-family: Georgia, 'Times New Roman', Times, serif;
+font: size 35px;
+color: brown;
+text-align: center;
+}
+.ColorColumna {
+background-color: red;
+
+}

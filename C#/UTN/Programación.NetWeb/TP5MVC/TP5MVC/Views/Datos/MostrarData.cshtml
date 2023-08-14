@@ -1,0 +1,43 @@
+﻿@model List<Usuario>
+
+<h1 class="text-center">Tabla Usuarios</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>
+                Id
+            </td>
+            <td>
+                Nombre
+            </td>
+            <td>
+                Apellido
+            </td>
+            <td>
+                Edad
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(it=>item.Id) </td>
+                <td>@Html.DisplayFor(it=>item.Nombre) </td>
+                <td>@Html.DisplayFor(it=>item.Apellido) </td>
+                <td>@Html.DisplayFor(it=>item.Edad) </td>
+                <td> <button class="btn btn-info">Editar</button></td>
+                <td> <button class="btn btn-danger">Eliminar</button></td>
+            </tr>
+        }
+        
+    </tbody>
+</table>
+<a asp-action="Create" button class="btn btn-success">Agregar Usuario</a>

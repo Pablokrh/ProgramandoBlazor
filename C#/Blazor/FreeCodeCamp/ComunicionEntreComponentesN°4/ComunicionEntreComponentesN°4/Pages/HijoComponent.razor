@@ -1,0 +1,39 @@
+﻿
+@if (mostrar==true)
+{
+     <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal fantástico de Pablo</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick="(()=>Cerratina())">Cerrar</button>
+                <button type="button" class="btn btn-primary" @onclick="(()=>Cerratina())">Guardar</button>
+                </div>
+            </div>
+        </div>
+  
+    <h3>Aquí se está mostrando la verdad de la milanesa, che</h3>
+}
+
+
+@code {
+
+    private bool mostrar = false;
+
+    public void Mostrattore()
+    {
+        mostrar = true;
+        StateHasChanged();
+    }
+    public void Cerratina()
+    {
+        mostrar = false;
+        StateHasChanged();
+    }
+
+}

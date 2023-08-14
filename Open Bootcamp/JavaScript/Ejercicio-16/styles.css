@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+.columna-1 {
+    width: 45%;  
+}
+.columna-2{
+    width: 45%;
+    margin: 10rem  5rem;   
+}
+.seccion {
+  background-color: darkslategrey;
+  padding: 1rem;
+  margin: 1rem;
+}
+.parrafo {
+  background-color: white;
+  padding: 1rem;
+}
+
+.dragging {
+  opacity: 0.3;
+}

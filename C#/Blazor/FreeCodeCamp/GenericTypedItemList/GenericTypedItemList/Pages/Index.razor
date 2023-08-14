@@ -1,0 +1,56 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<GridAutoComponent Items="empleados" ColumnsToExcludeCSV="Id" CssClass="table-striped"></GridAutoComponent>
+
+
+
+@code{
+    private List<Employee> empleados;
+
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        empleados = new List<Employee>()
+        {
+            new Employee()
+            {
+                Id=1,
+                Name="Pipo Pescador",
+                Title="Pescador",
+                Department="Pesquicultura"
+            },
+              new Employee()
+            {
+                Id=2,
+                Name="Ezequiel Salanitro",
+                Title="Sikario",
+                Department="Música"
+            },
+              new Employee()
+            {
+                Id=3,
+                Name="John Rambo",
+                Title="Patriota",
+                Department="Defensa Nacional"
+            },
+        };
+
+    }
+
+
+
+
+
+
+    public class Employee
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Title { get; set; }
+        public string Department { get; set; }
+
+    }
+}

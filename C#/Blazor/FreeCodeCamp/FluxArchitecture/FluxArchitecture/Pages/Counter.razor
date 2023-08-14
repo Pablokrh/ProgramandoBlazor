@@ -1,0 +1,43 @@
+﻿@page "/counter"
+@implements IDisposable
+@inject CounterStore counterStore
+@inject IActionDispatcher actionDispatcher
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+@*Acá se modificó el atributo por el counterstore.getState()*@
+<p role="status">Current count: @counterStore.GetState().Count</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    //Acá se eliminó el atributo que recogía el conteo
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        //acá se suscribe al observer.
+        counterStore.AddStateChangeListener(() => { UpdateView(); });
+    }
+
+    //Acá se usan los métodos para incrementar y reducir el contador:
+    private void IncrementCount()
+    {
+        actionDispatcher.Dispatch(new IncrementAction());
+    }
+    private void DecrementCount()
+    {
+        actionDispatcher.Dispatch(new DecrementAction());
+
+    }
+    private void UpdateView()
+    {
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        counterStore.RemoveStateChangeListener(UpdateView);
+    }
+}

@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Inmobiliaria.DTO\Inmobiliaria.DTO.csproj" />
+    <ProjectReference Include="..\Inmobiliaria.Modelo\Inmobiliaria.Modelo.csproj" />
+    <ProjectReference Include="..\Inmobiliaria.Repositorio\Inmobiliaria.Repositorio.csproj" />
+    <ProjectReference Include="..\Inmobiliaria.Utilidades\Inmobiliaria.Utilidades.csproj" />
+  </ItemGroup>
+
+</Project>

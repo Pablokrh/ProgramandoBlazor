@@ -1,0 +1,83 @@
+﻿@page "/repeater"
+
+<RepeaterComponent @ref="repeater"
+    Items="customers">
+    <Header>
+        <h2 > Customers</h2>
+        <hr  />
+    </Header>
+    <Row Context="customer">
+      
+        <div><b>@customer.CompanyName </b>
+             &nbsp;
+             <button class="btn btn-outline-info" @onclick="@(()=>EditCustomer(customer))">Edit</button>
+        </div>       
+        <div class="ms-5">@customer.ContactName</div>
+        <div class="ms-5">@customer.PhoneNumber</div>        
+        @*Agrega un margen a la izquierda y al ppio un renglon en blanco*@
+    </Row>
+    <EditTemplate Context="currentCustomer">
+        <div>
+            <span>Company Name:</span><input class="form-control" @bind-value="currentCustomer.CompanyName"/>
+        </div>
+        <div>
+            <span>Contact Name:</span><input class="form-control" @bind-value="currentCustomer.ContactName"/>
+        </div>
+        <div>
+            <span>Phone Number:</span><input class="form-control" @bind-value="currentCustomer.PhoneNumber"/>
+        </div>
+    </EditTemplate>
+
+    <Footer>
+        <hr />
+        <p>Sistema de gestión de componentes de Proyecto Don Mongo</p>
+    </Footer>
+</RepeaterComponent>
+
+
+@code {
+    private List<Customer> customers;
+    private RepeaterComponent<Customer> repeater;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        customers = new List<Customer>()
+        {
+            new Customer()
+            {
+                CompanyName="ABC Company",
+                ContactName="Lucy Liu",
+                PhoneNumber="123485102"
+            },
+            new Customer()
+            {
+                CompanyName="DEF Company",
+                ContactName="Mark Hamill",
+                PhoneNumber="69227592"
+            },
+            new Customer()
+            {
+                CompanyName="GHI Company",
+                ContactName="Pilar Miró",
+                PhoneNumber="85011759"
+            },
+
+
+        };
+    }
+
+    private void EditCustomer(Customer customer)
+    {
+        repeater.ItemToEdit = customer;
+    }
+
+
+    class Customer
+    {
+        public string CompanyName { get; set; }
+        public string ContactName { get; set; }
+        public string PhoneNumber { get; set; }
+    }
+
+}

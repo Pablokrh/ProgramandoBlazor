@@ -1,0 +1,116 @@
+﻿@page "/"
+@using DataGrid.Configuration;
+@using DataGrid.Controls;
+
+<PageTitle>Index</PageTitle>
+
+
+<DataGrid.Controls.DataGridComponent TItem="Employee" 
+                                     DataItems="empleados"
+                                     ConfigurationDG="definicionesDeColumnas"
+                                     Paging =@(new PaginConfig {
+                                         Enabled=false,
+                                         CustomPager=false,
+                                         PageSize=3
+                                     })></DataGrid.Controls.DataGridComponent>
+
+
+@code{
+    private List<Employee> empleados;
+    private List<ConfigurationDG> definicionesDeColumnas;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        if (definicionesDeColumnas == null)
+        {
+            definicionesDeColumnas = new List<ConfigurationDG>();
+            definicionesDeColumnas.AddRange(
+                new ConfigurationDG[]
+                {
+                    new ConfigurationDG{DataField="Name", Caption="Name", SortDirection=SortDirection.Asc },
+                    new ConfigurationDG{DataField="Title", Caption="Title" },
+                    new ConfigurationDG{DataField="Department", Caption="Department" },
+                    new ConfigurationDG{DataField="EmploymentDate", Caption="Employment Date",DataType=DataType.Date, Format="yyyy/MM/dd" },
+                    new ConfigurationDG{DataField="Salary", Caption="Annual Salary", DataType=DataType.Currency, Alignment=Alignment.Right, Format="c" }
+                }
+            );           
+        }
+
+        if (empleados == null)
+        {
+            empleados = new List<Employee>()
+        {
+            new Employee()
+            {
+                Salary=1500,
+                Name="Pipo Pescador",
+                Title="Pescador",
+                EmploymentDate=DateTime.Now,
+                Department="Pesquicultura"
+            },
+              new Employee()
+            {
+                Salary=200,
+                Name="Ezequiel Salanitro",
+                Title="Sikario",
+                EmploymentDate=DateTime.Now,
+                Department="Música"
+            },
+              new Employee()
+            {
+                Salary=1370,
+                Name="John Rambo",
+                Title="Patriota",
+                EmploymentDate=DateTime.Now,
+                Department="Defensa Nacional"
+            },
+            new Employee()
+            {
+                Salary=6500,
+                Name="Tomás Mejía",
+                Title="Ensartador de gusanos",
+                EmploymentDate=DateTime.Now,
+                Department="Pesquicultura"
+            },
+              new Employee()
+            {
+                Salary=3200,
+                Name=" 'el Negro' Roldán",
+                Title="Plomo",
+                EmploymentDate=DateTime.Now,
+                Department="Música"
+            },
+              new Employee()
+            {
+                Salary=1580,
+                Name="Guadalupe Cuchilleira",
+                Title="Proveedora",
+                EmploymentDate=DateTime.Now,
+                Department="Defensa Nacional"
+            },
+             new Employee()
+            {
+                Salary=300,
+                Name="Anibal Troilo",
+                Title="Serruchero",
+                EmploymentDate=DateTime.Now,
+                Department="Defensa Nacional"
+            },
+        };
+        }
+
+        
+    }
+
+    public class Employee
+    {
+        public string Name { get; set; }
+        public string Title { get; set; }
+        public string Department { get; set; }
+        public DateTime EmploymentDate { get; set; }
+        public decimal Salary { get; set; }
+
+    }
+}

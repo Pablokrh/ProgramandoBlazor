@@ -1,0 +1,19 @@
+.contenedor{
+display: flex;
+gap: 0.5rem;
+background-color: yellow;
+padding: 0.25rem;
+height: 5rem;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+}
+
+.item{
+    background-color: salmon;
+    padding: 0.25rem;
+}
+
+.item2, .item4{
+    align-self: flex-end;
+}

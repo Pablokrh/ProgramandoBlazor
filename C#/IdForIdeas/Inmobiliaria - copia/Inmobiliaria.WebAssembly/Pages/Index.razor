@@ -1,0 +1,68 @@
+﻿@page "/"
+
+@inject IInmobiliariaServicios inmobiliariaServicios;
+
+<div>
+    <div class="row justify-content-center mt-3 mb-4">
+        <div class="col-sm-6 col-md-8 col-xl-9">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Buscar producto..." @bind-value="buscar">
+                <button class="btn btn-outline-secondary" type="button" @onclick="(async () => await  ObtenerCatalogo())">
+                    <i class="oi oi-magnifying-glass"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+     <div class="col-sm-10">
+
+        <div class="row gx-4 row-cols-1 row-cols-md-3 row-cols-xl-4 justify-content-start">
+            @foreach (var item in listaInmuebles)
+            {
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="text-center">
+                                @*Imagen*@
+                                <img class="card-img-top border-dark border-1" src=@item.FechaCreacion style="width:100%;height:250px">
+                                <h3 class="fw-bolder">@item.Titulo</h3>
+                                @item.Precio
+                                @item.Pais                        
+                                @item.Estado
+                            </div>
+                        </div>
+                        <div class="card-footer p-3 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/detalle/@item.IdInmueble">Ver producto</a></div>
+                        </div>
+                    </div>
+
+
+                </div>
+            }        
+        </div> 
+     </div>
+</div>     
+
+@code{
+    List<InmuebleDTO> listaInmuebles = new List<InmuebleDTO>();
+    string buscar = "";
+      
+    private async Task ObtenerCatalogo()
+    {
+        var response = await inmobiliariaServicios.Catalogo(buscar);
+        if (response.EsCorrecto == true)
+        {
+            listaInmuebles = (List<InmuebleDTO>)response.Resultado!;
+        }
+        else
+        {
+            listaInmuebles = new List<InmuebleDTO>();
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ObtenerCatalogo();
+    }
+}
+

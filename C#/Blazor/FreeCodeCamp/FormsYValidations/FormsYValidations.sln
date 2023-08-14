@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormsYValidations", "FormsYValidations\FormsYValidations.csproj", "{0C2279B9-8F40-443A-9A0A-BC7679D9E0B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0C2279B9-8F40-443A-9A0A-BC7679D9E0B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C2279B9-8F40-443A-9A0A-BC7679D9E0B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C2279B9-8F40-443A-9A0A-BC7679D9E0B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C2279B9-8F40-443A-9A0A-BC7679D9E0B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {21AC6FD4-7432-41CF-81DE-0EF44E2368A7}
+	EndGlobalSection
+EndGlobal

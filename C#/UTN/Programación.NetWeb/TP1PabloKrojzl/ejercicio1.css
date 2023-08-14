@@ -1,0 +1,148 @@
+*{
+    font-family: 'Libre Baskerville', serif;
+}
+
+.columna-1{
+    background-color: rgb(12, 12, 114);
+     width: 50%;   
+     border-top-left-radius: 20px;
+     border-bottom-left-radius: 10px;
+    color: rgb(192, 192, 192);
+
+}
+
+.columna-2{  
+    background-color: rgb(31, 30, 30);
+    width: 50%;    
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 10px;
+    color: rgb(238, 238, 238);
+   
+}
+.img-contiene{
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+.columna-1 img {
+    height: 15rem;
+    border-radius: 100%  ;
+    
+}
+
+.container{
+    display: flex;
+}
+
+.columna-1 p{
+        font-size: 1rem;
+}
+.datos-item{
+    display: flex;
+    margin-left: 3rem;
+}
+.datos-item i{
+   margin-right: 1rem;
+   font-size: 1.7rem;
+   transform: translateY(-10px);
+}
+.datos-titulo{
+    display: flex;
+    margin: 2.5rem;
+    font-weight: 100;
+    font-size: 2rem;
+
+}
+.datos-titulo h2{
+    font-size: 2.2rem;
+    font-weight: 400;    
+
+}
+.datos-titulo i{
+   margin-right: 1rem;
+    font-size: 2rem;
+    width: 3.75rem;
+    height: 3.55rem;
+    box-shadow: 0 0 7px rgb(89, 88, 88);
+    padding: 0.3rem 0.8rem;
+    border-radius: 60%;
+    background-color:rgb(69, 68, 68);
+transform: translateY(-5px);
+
+}
+.datos-titulo .img2{
+    padding: 0.35rem 0.9rem;
+    background-color:rgb(12, 12, 114);
+}
+
+.datos-titulo .img3{
+    border-radius: 10%;
+
+    height: 100px;
+    padding: 0.35rem 0.9rem;
+    background-color:rgb(12, 12, 114);
+}
+.datos-titulo .img-psi{
+    height: 45px;
+    color: grey;
+}
+
+.titulo-nombre{
+    font-size: 3rem;
+    text-align: center;
+    margin: 4rem 0;
+}
+
+.columna-2 li {
+    margin-left: 2rem;
+    margin-bottom: 1.5rem;
+}
+.columna-2 li p {
+    margin: 0.2rem 0;
+}
+.columna-1 li {
+    margin-left: 2rem;
+    margin-bottom: 1.5rem;
+}
+.columna-1 li p {
+    margin: 0.2rem 0;
+}
+
+.escuela{
+    font-style: italic;
+}
+.nombre{
+    font-weight: 700;
+}
+
+.pie {
+    display: flex;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    padding-bottom: 0;
+    border-radius: 20px; 
+    justify-self: center;
+    align-self: center;
+    align-content: center;
+    flex-direction:column;
+    width: 50%;
+    background-color: grey;
+}
+
+.pie h3{
+    font-size: 1rem;
+    color: white;    
+}
+
+.pie div input {
+    height: 25px;
+ 
+}
+.btnNuevo {
+    width: 35%;
+    margin: 1rem auto;
+    margin-bottom: 0.8rem;  
+
+}

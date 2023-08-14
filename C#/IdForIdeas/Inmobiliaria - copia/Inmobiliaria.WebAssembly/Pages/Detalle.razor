@@ -1,0 +1,110 @@
+﻿@page "/detalle/{Id:int}"
+
+@inject IInmobiliariaServicios inmobiliariaServicio;
+
+
+<div class="container">
+
+
+    @if (modelo!=null){
+        <div class="row gx-4 gx-lg-5 align-items-center">
+
+            <div class="col-md-6 align-items-center">
+                @*Imagen*@
+                <img class="card-img-top border-dark border-1" src="@modelo.FechaCreacion" style="width:100%;">
+             </div >
+            <div class="col-md-6 align-items-center">
+                    <span class="fw-bolder">@modelo.Titulo  </span>
+               
+                <div>
+                    <span>@modelo.TipoInmueble</span>
+                </div>
+                <div>
+                    <span>@modelo.Detalles</span>
+                </div>
+                <div>
+                    <span>@modelo.Pais</span>
+                    <span>@modelo.Ciudad</span>
+                
+                </div > 
+                <div class="align-content-center">  
+                  <table class="table ">
+                    <thead>
+                        <tr>
+                            <th>Ambientes</th>
+                            <th>Metros cuadrados</th>
+                            <th>Antigüedad</th>    
+                        </tr>
+                    </thead>
+                    <tbody>
+                       <tr>
+                           <th>@modelo.Ambientes</th>
+                           <th>@modelo.Metros</th>
+                           <th>@modelo.Antigüedad</th>
+                       </tr> 
+                    </tbody>
+                </table>
+
+                <table class="table table-striped align-content-center">
+                    <thead>
+                        <tr>
+                            <th>Estado</th>
+                            <th>Publicado para</th>
+                            <th>Antigüedad</th>                            
+                        </tr>
+                    </thead>
+                </table>
+                </div>
+           
+                <div>
+                    <span>@modelo.Precio</span>
+                    <span>@modelo.Expensas</span>
+                    
+                   
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+    }
+
+
+    else
+    {
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    }
+
+
+
+
+
+</div>
+
+
+
+
+@code {
+
+    [Parameter]
+    public int Id { get; set; }
+
+    private InmuebleDTO modelo=null;
+
+
+    protected override async Task OnParametersSetAsync()
+    {
+        var response = await inmobiliariaServicio.Obtener(Id);
+        if (response.EsCorrecto == true) modelo = (InmuebleDTO)response.Resultado!;
+
+    }
+}

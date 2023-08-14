@@ -1,0 +1,112 @@
+﻿@inject ICarritoServicio carritoServicio
+@implements IDisposable
+
+@inject SweetAlertService swal;
+@inject NavigationManager navigation;
+@using Ecommerce.WebAssembly.Extensiones;
+@using Microsoft.AspNetCore.Components.Authorization;
+@using System.Security.Claims;
+@inject AuthenticationStateProvider autenticacionProvider;
+
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" runat="server" href="#">Ecommerce Demo</a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Alternar navegación" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="@NavMenuCssClass navbar-collapse d-sm-inline-flex justify-content-between">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+
+                <AuthorizeView Roles= "administrador" >
+                    <li class="nav-item" b-test><NavLink class="nav-link" href="dashboard"> Dashboard</NavLink></li>
+                    <li class="nav-item"><NavLink class="nav-link" href="usuarios"> Usuarios</NavLink></li>
+                    <li class="nav-item"><NavLink class="nav-link" href="categorias"> Categorias</NavLink></li>
+                    <li class="nav-item"><NavLink class="nav-link" href="productos"> Productos</NavLink></li>
+                </AuthorizeView>
+                @*  Alguien no logueado solo podrá ver lo que viene del navmenu  *@
+                <li class="nav-item"><NavLink class="nav-link" href="catalogo"> Tienda</NavLink></li>
+            </ul>
+
+             <AuthorizeView>
+                 <Authorized>
+                    <span class="navbar-text me-3">
+                        @context.User.Claims.Where(x=>x.Type==ClaimTypes.Email).Select(x=>x.Value).SingleOrDefault())
+                    </span>
+                 </Authorized>
+             </AuthorizeView>
+
+          
+            <a class="btn btn-outline-dark ms-auto ms-md-0 me-3" href="/cart">
+                <i class="bi-cart-fill me-1"></i>
+                Cart
+                <span class="badge bg-dark text-white ms-1 rounded-pill">@MostrarCantidadCarrito()</span>
+            </a>
+
+              <AuthorizeView>
+                 <Authorized>
+
+                    <button class="btn btn-outline-dark ms-auto ms-md-0 me-3" type="button" @onclick="CerrarSesion">Salir</button>
+
+                 </Authorized>
+                 <NotAuthorized>
+                    <a class="btn btn-outline-dark ms-auto ms-md-0 me-3" href="/login">Iniciar sesion</a>
+                 </NotAuthorized>
+
+              </AuthorizeView>
+
+
+        </div>
+    </div>
+</nav>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+
+    protected override void OnInitialized()
+    {
+        //Ese evento lo que hace es recargar al componente. Se van a ir sumando los ítems
+        //Son 2 métodos que se convierten en uno solo.
+        carritoServicio.MostrarItems+=StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        //Acá se resta, para que ya no estén relacionados
+        carritoServicio.MostrarItems -= StateHasChanged;
+    }
+
+    private int MostrarCantidadCarrito()
+    {
+        return carritoServicio.CantidadProductos();
+    }
+
+    private async  Task CerrarSesion()
+    {
+        SweetAlertResult result = await swal.FireAsync(new SweetAlertOptions
+            {
+                Title = "¿Desea salir?",               
+                Icon = SweetAlertIcon.Warning,
+                ShowCancelButton = true,
+                ConfirmButtonText = "Si, eliminar",
+                CancelButtonText = "No, volver"
+            });
+
+        if (result.IsConfirmed)
+        {
+
+            var autenticacionExterno = (AutenticacionExtension)autenticacionProvider;
+            await autenticacionExterno.ActualizarEstadoAutenticacion(null);
+            navigation.NavigateTo("/", true);
+        }
+    }
+
+}

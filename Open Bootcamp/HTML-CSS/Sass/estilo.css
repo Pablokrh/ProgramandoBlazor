@@ -1,0 +1,67 @@
+.btn-pablo, .btn-2-pablo {
+  border: none;
+  padding: 0.5rem;
+  color: #2b2b2b;
+  font-size: 1.3rem;
+  border-radius: 5px;
+}
+.btn-pablo:hover, .btn-2-pablo:hover {
+  background-color: cyan;
+  color: red;
+  cursor: pointer;
+}
+
+.btn-2-pablo:hover {
+  background-color: pink;
+}
+
+p {
+  width: 50rem;
+  text-transform: uppercase;
+  color: #ccc;
+  background-color: #928686;
+}
+
+h1 {
+  font-size: 4rem;
+  width: 50rem;
+  text-transform: uppercase;
+  color: #ccc;
+  background-color: #2b2b2b;
+}
+
+.container {
+  width: 100%;
+  background-color: azure;
+  min-height: 100vh;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+.listado ul li {
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.listado {
+  background-color: aqua;
+  color: red;
+  border-radius: 10px;
+  width: 50vw;
+}
+.listado ul {
+  padding: 2rem;
+}
+.listado ul li {
+  list-style: none;
+  margin-top: 1rem;
+  text-transform: uppercase;
+}
+.listado ul li:hover {
+  color: yellow;
+}
+
+/*# sourceMappingURL=estilo.css.map */

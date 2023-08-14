@@ -1,0 +1,51 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0px;
+    margin: 0px;
+}
+
+.btn {
+padding: 10px 20px;
+border-radius: 5px;
+border: none;
+background-color: green;
+color: antiquewhite;
+border-bottom: 2px solid rgb(1, 45, 1);
+cursor: pointer;
+transition: background-color 150ms;
+position: relative;
+
+}
+.btn:hover {
+    background-color: rgb(12, 79, 12);
+}
+
+.tooltip{
+position: absolute;
+opacity: 0%;
+top: -50px;
+left: -100%;
+transform: translateX(25%);
+/*Vieja forma de hacerlo en el renglón de arriba*/
+color: #ddd;
+background-color: grey;
+padding: 5px 10px;
+border-radius: 5px;
+transition: opacity 200ms;
+}
+
+.btn:hover .tooltip{
+       opacity: 1;
+}
+.tooltip::before{
+content: '';
+border:solid 10px transparent;
+border-top-color: grey ;
+position: absolute;
+top: 40px;
+left: 50%;
+transform: translateX(-50%);
+}

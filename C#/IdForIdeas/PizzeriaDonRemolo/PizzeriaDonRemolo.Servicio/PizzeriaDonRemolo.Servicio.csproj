@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PizzeriaDonRemolo.DTO\PizzeriaDonRemolo.DTO.csproj" />
+    <ProjectReference Include="..\PizzeriaDonRemolo.Model\PizzeriaDonRemolo.Model.csproj" />
+    <ProjectReference Include="..\PizzeriaDonRemolo.Repositorio\PizzeriaDonRemolo.Repositorio.csproj" />
+    <ProjectReference Include="..\PizzeriaDonRemolo.Utilidades\PizzeriaDonRemolo.Utilidades.csproj" />
+  </ItemGroup>
+
+</Project>

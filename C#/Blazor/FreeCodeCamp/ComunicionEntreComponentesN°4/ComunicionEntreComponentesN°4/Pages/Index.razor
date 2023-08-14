@@ -1,0 +1,18 @@
+﻿@page "/"
+
+<PageTitle>App de Pablo</PageTitle>
+
+<h1>Bienvenido...</h1>
+<p> Esta es la cuarta forma de comunicación entre componentes que nos propone Free Code Camp</p>
+
+
+<button class="btn btn-primary" @onclick="(()=>{
+hijo.Mostrattore();
+})">Mostrar hijo</button>
+
+
+<HijoComponent @ref="hijo"></HijoComponent>
+
+@code{
+    private HijoComponent hijo;
+}

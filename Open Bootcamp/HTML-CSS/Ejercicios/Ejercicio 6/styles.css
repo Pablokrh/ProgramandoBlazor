@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.imagen{
+    width: 300px;
+}
+
+#fondo{
+    height: 100vh;
+    width: 100vw;  
+    object-fit:contain;
+    position:fixed;
+  background-color: rgb(27, 26, 26);
+
+}
+.galeria{
+    display: flex;
+    flex-wrap: wrap;
+position:relative;
+height: 100vh;
+text-align: center;
+
+justify-content: center;
+align-items: center;
+}

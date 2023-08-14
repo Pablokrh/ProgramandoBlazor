@@ -1,0 +1,67 @@
+﻿@page "/"
+@using System.ComponentModel.DataAnnotations;
+
+<EditForm Model="person" OnInvalidSubmit="ValidFormSubmitted" >
+    <DataAnnotationsValidator></DataAnnotationsValidator>
+    <ValidationSummary></ValidationSummary>
+    @*Esta segunda línea agrega los msjitos de invalidación*@
+    <label>
+        First Name:<br />
+        <InputText id="fname" @bind-Value="person.FirstName"></InputText>
+    </label>
+    <br />
+    <label>
+        Last Name: <br />
+        <InputText id="lname" @bind-Value="person.LastName"></InputText>
+    </label>
+    <br />
+    <label>
+        Employee Number: <br />
+        <InputNumber id="empNumber" @bind-Value="person.EmployeeNumber"></InputNumber>
+    </label>
+    <br />
+    <label>
+        Email Adress:<br />
+        <InputText id="email" @bind-Value="person.Email"></InputText>
+    </label>
+    <br />
+
+    <input type="submit" value="Submit" />
+    <button type="button">Enviar data</button>
+
+</EditForm>
+
+@if (personita != null)
+{
+    <p><b>@personita.FirstName @personita.LastName</b></p>
+    <p>@personita.EmployeeNumber</p>
+    <p>@personita.Email</p>
+}
+
+@code{
+    Person person = new Person();
+    Person personita;
+    private void ValidFormSubmitted()
+    {
+        personita = person;
+    }
+
+    class Person{
+
+        [Required]
+        [StringLength(50)]
+        public string FirstName {get;set;}
+
+        [Required]
+        [StringLength(50)]
+        public string LastName { get; set; }
+
+        [Required]
+        [Range(1,1000)]
+        public int EmployeeNumber { get; set; }
+
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; }
+    }
+}

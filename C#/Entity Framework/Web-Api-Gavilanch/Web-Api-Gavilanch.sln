@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web-Api-Gavilanch", "Web-Api-Gavilanch\Web-Api-Gavilanch.csproj", "{737FF763-6F2A-4403-AB08-83CD0993FD85}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{737FF763-6F2A-4403-AB08-83CD0993FD85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{737FF763-6F2A-4403-AB08-83CD0993FD85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{737FF763-6F2A-4403-AB08-83CD0993FD85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{737FF763-6F2A-4403-AB08-83CD0993FD85}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5060B155-25C3-4421-8640-CDC1531771D7}
+	EndGlobalSection
+EndGlobal

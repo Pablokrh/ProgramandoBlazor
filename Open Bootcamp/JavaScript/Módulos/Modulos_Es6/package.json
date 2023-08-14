@@ -1,0 +1,13 @@
+{
+  "name": "modulos_es6",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "indice.js",
+  "scripts": {
+    "start": "node indice.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
